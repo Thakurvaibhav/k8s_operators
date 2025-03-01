@@ -1,0 +1,51 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: secretcopies.ops.dev
+spec:
+  scope: Namespaced
+  group: ops.dev
+  names:
+    kind: SecretCopy
+    plural: secretcopies
+    singular: secretcopy
+    shortNames:
+      - secpy
+      - secpy
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+              properties:
+                sourceSecret:
+                  type: string
+                sourceNamespace:
+                  type: string
+                sourceFields:
+                  type: array
+                  items:
+                    type: string
+                targetNamespace:
+                  type: string
+                targetSecret:
+                  type: string
+              required:
+                - sourceNamespace
+                - sourceSecret
+            status:
+              x-kubernetes-preserve-unknown-fields: true
+              type: object
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vaibhav-test
