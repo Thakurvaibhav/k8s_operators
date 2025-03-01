@@ -5,14 +5,15 @@ from config import Config
 import time
 
 # Create an operator which looks for a CR and copies secrets as per its spec. The CR should be something like
-# apiVersion: ops.dev/v1
-# kind: SecretCopy
-# metadata:
-#   name: es-exporter-copy
-#   namespace: vaibhav-test
-# spec:
-#   sourceNamespace: monitoring
-#   sourceSecret: es-exporter
+#apiVersion: ops.dev/v1
+#kind: SecretCopy
+#metadata:
+#  name: ns-1-secret
+#  namespace: my-ns-2
+#spec:
+#  sourceNamespace: my-ns-1
+#  sourceSecret: my-source-secret
+#  targetSecret: ns-1-secret
 # Set up logging
 logger = Config.setup_logging()
 cluster = Config.cluster()

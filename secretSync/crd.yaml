@@ -44,8 +44,3 @@ spec:
               type: object
 
 ---
-
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: vaibhav-test
