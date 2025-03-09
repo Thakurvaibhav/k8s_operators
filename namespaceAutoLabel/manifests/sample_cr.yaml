@@ -1,0 +1,11 @@
+---
+apiVersion: ops.dev/v1
+kind: NamespaceLabeller
+metadata:
+  name: ns1-labels
+spec:
+  targetNamespace: ns1
+  targetLabels:
+    app: demo-app
+    environment: dev
+    service: demo-service

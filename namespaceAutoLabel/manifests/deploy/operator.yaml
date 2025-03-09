@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: namespace-label-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: namespace-label-operator
+  template:
+    metadata:
+      labels:
+        k8s-app: namespace-label-operator
+    spec:
+      serviceAccountName: namespace-label-operator
+      restartPolicy: Always
+      containers:
+        - name: namespace-label-operator
+          image: vaibhavthakur/namespaceautolabel::v0.1
+          command: ["python", "namespace-label.py"]
+          env:
+            - name: LOG_LEVEL
+              value: "INFO"
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "50Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
