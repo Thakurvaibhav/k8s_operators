@@ -1,4 +1,3 @@
----
 apiVersion: ops.dev/v1
 kind: SecretCopy
 metadata:
@@ -8,3 +7,4 @@ spec:
   sourceNamespace: my-ns-1
   sourceSecret: my-source-secret
   targetSecret: ns-1-secret
+---

@@ -3,8 +3,6 @@ import os
 import sys
 
 class Config():
-    teams_url = os.getenv('TEAMS_URL')
-    namespace = os.getenv('NAMESPACE')
     label = os.getenv('LABEL')
     interval = float(os.getenv('INTERVAL', 30))
     
